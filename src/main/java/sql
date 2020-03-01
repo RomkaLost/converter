@@ -1,0 +1,14 @@
+CREATE TABLE valuteDictionary
+(
+    name text  NOT NULL,
+    charCode text  NOT NULL,
+    numCode text  NOT NULL,
+    id text  NOT NULL
+);
+
+CREATE TABLE courseAndDate
+(
+    id text NOT NULL,
+    course decimal NOT NULL,
+    date date NOT NULL
+);

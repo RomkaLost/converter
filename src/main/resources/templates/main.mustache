@@ -1,0 +1,45 @@
+</html>
+<body>
+<div>
+    <form method="post">
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+
+        <select name="firstId">{{#valutes}} +
+            <option value="{{id}}" {{#sel}}selected{{/sel}}>
+                {{name}}
+                </option> +
+            {{/valutes}}</select>
+        <select name="secondId">{{#valutes}} +
+            <option value="{{id}}" {{#sel}}selected{{/sel}}>
+                {{name}}
+            </option> +
+            {{/valutes}}</select>
+        </select>
+        <input type= "value" name="quantity" placeholder="Введите количество первой валюты">
+        <button type="submit">Конвертировать</button>
+    </form>
+</div>
+<form action="/dictionary">
+    <button>Посмотреть список валют</button>
+</form>
+<div>Список транзакций</div>
+{{#convertations}}
+    <div>
+        <b>{{date}}</b>
+        <b>Вы перевели</b>
+        <span>{{firstQuantity}}</span>
+        <i>{{firstValute.name}}</i>
+        <b>По курсу</b>
+        <i>{{course}}</i>
+        <b>И получили</b>
+        <i>{{secondQuantity}}</i>
+        <span>{{secondValute.name}}</span>
+    </div>
+{{/convertations}}
+<div>
+<form action="/logout" method="post">
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+    <input type="submit" value="Sign Out"/>
+</form>
+</div>
+</body>
